@@ -135,6 +135,7 @@ public class TelaLogin extends javax.swing.JFrame {
         if(TxtLogin.getText().equals("Usuario") && TxtSenha.getText().equals("1234")){
             JOptionPane.showMessageDialog(null, "Bem-Vindo!");
             
+            new TelaPrincipal().setVisible(true);
             
         }else{
             JOptionPane.showMessageDialog(null, "Usuario/Senha Invalidos");
