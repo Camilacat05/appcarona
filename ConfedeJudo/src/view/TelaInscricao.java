@@ -174,7 +174,7 @@ public class TelaInscricao extends javax.swing.JInternalFrame {
         inc.setIdade(Integer.parseInt(txtIdade.getText()));  
         inc.setPeso(Float.parseFloat(txtPeso.getText()));
         inc.setPreco(Float.parseFloat(txtpreco.getText()));
-        dao.create(inc);
+        dao.cadastrarInscricao(inc);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void txtGradActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGradActionPerformed

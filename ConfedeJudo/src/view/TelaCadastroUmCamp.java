@@ -165,7 +165,7 @@ public class TelaCadastroUmCamp extends javax.swing.JInternalFrame {
         camp.setHorario(Float.parseFloat(horario.getText()));
         
 
-        dao.create(camp);
+        dao.cadastrarCampeonato(camp);
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
