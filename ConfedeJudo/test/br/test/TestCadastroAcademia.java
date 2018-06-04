@@ -32,6 +32,12 @@ public class TestCadastroAcademia {
    }
    
    @Test
+   public void testCadastroAcademiaInvalido(){
+     
+     assertFalse(cad.cadastrarAcademia(c));
+     
+   }
+   @Test
    public void testCadastroAcademiaValido(){
        c.setNomeAcademia("Judo");
        c.setNomeProf("Julio");
@@ -41,14 +47,6 @@ public class TestCadastroAcademia {
        c.setEnderco("Rua perdida");
        assertTrue(cad.cadastrarAcademia(c));
    }
-   
-   @Test
-   public void testCadastroAcademiaInvalido(){
-     
-     assertFalse(cad.cadastrarAcademia(c));
-     
-   }
-   
    @Test 
    public void testCampoVazioValido(){
        assertTrue(cad.verificaCampoVazio(c));
@@ -56,29 +54,144 @@ public class TestCadastroAcademia {
    
     @Test 
    public void testCampoVazioInvalido(){
-       assertFalse(cad.verificaCampoVazio(c));
+       assertTrue(cad.verificaCampoVazio(c));
    }
    
    @Test
-   public void testCampoNomeValido(){
-       c.setNomeAcademia("Nova Forma");
-       assertTrue(cad.verificaNome(c));
+   public void testCampoNomeNumericoValido(){
+       c.setNomeAcademia("12345");
+       assertTrue(cad.verificaNomeNumerico(c));
+   }
+   @Test
+   public void testCampoNomeNumericoInvalido(){
+       assertFalse(cad.verificaNomeNumerico(c));
+   }
+   @Test
+   public void testverificaNomeCaracterEspecialValido(){
+       c.setNomeAcademia("@#$%&");
+       assertTrue(cad.verificaNomeCaracterEspecial(c));
+   }
+   @Test
+   public void testverificaNomeCaracterEspecialInvalido(){
+       assertFalse(cad.verificaNomeCaracterEspecial(c));
+   }
+   @Test
+   public void testverificaNomeCaracterEspecialNumericoValido(){
+       c.setNomeAcademia("@#$1234");
+       assertTrue(cad.verificaNomeCaracterEspecialNumerico(c));
+   }
+    @Test
+   public void testverificaNomeCaracterEspecialNumericoInvalido(){
+       assertFalse(cad.verificaNomeCaracterEspecialNumerico(c));
+   }
+   @Test
+   public void testverificaNomeNumericoProfessorValido(){
+       c.setNomeProf("12345");
+       assertTrue(cad.verificaNomeNumericoProfessor(c));
    }
    
    @Test
-   public void testCampoNomeInvalido(){
-       assertFalse(cad.verificaNome(c));
+   public void testverificaNomeNumericoProfessorInvalido(){
+       assertFalse(cad.verificaNomeNumericoProfessor(c));
    }
-   
+   @Test
+   public void testverificaNomeCaracterEspecialProfessorValido(){
+       c.setNomeProf("@#$%&");
+       assertTrue(cad.verificaNomeCaracterEspecialProfessor(c));
+   }
+    @Test
+   public void testverificaNomeCaracterEspecialProfessorInvalido(){
+       assertFalse(cad.verificaNomeCaracterEspecialProfessor(c));
+   }
+   @Test
+   public void testverificaNomeProfessorCaracterEspecialNumericoValido(){
+       c.setNomeProf("@#$1234");
+       assertTrue(cad.verificaNomeProfessorCaracterEspecialNumerico(c));
+   }
+   @Test
+   public void testverificaNomeProfessorCaracterEspecialNumericoInvalido(){
+       assertFalse(cad.verificaNomeProfessorCaracterEspecialNumerico(c));
+   }
+   @Test
+   public void testverificaNomeNumericoGraduacaoValido(){
+       c.setGraduacaoProf("12345");
+       assertTrue(cad.verificaNomeNumericoGraduacao(c));
+   }
+   @Test
+   public void testverificaNomeNumericoGraduacaoInvalido(){
+       assertFalse(cad.verificaNomeNumericoGraduacao(c));
+   }
+    @Test
+    public void testverificaNomeCaracterEspecialGraduacaoValido(){
+        c.setGraduacaoProf("@#$%&");
+        assertTrue(cad.verificaNomeCaracterEspecialGraduacao(c));
+    }
+    @Test
+    public void testverificaNomeCaracterEspecialGraduacaoInvalido(){
+        assertFalse(cad.verificaNomeCaracterEspecialGraduacao(c));
+    }
+    @Test
+    public void testverificaNomeGraduacaoCaracterEspecialNumericoValido(){
+        c.setGraduacaoProf("@#$1234");
+        assertTrue(cad.verificaNomeGraduacaoCaracterEspecialNumerico(c));
+    }
+    @Test
+    public void testverificaNomeGraduacaoCaracterEspecialNumericoInvalido(){
+        assertFalse(cad.verificaNomeGraduacaoCaracterEspecialNumerico(c));
+    }
    @Test
    public void testCampoSexoValido(){
-       
+       c.setSexo("Feminino");
        assertTrue(cad.verificaSexo(c));
    }
-   
    @Test
    public void testCampoSexoInvalido(){
        
        assertFalse(cad.verificaSexo(c));
+   }
+   @Test
+   public void testverificaSexoNumericoValido(){
+       c.setSexo("12345");
+       assertTrue(cad.verificaSexoNumerico(c));
+   }
+    @Test
+    public void testverificaSexoNumericoInvalido(){
+        assertFalse(cad.verificaSexoNumerico(c));
+    }
+   @Test
+   public void testverificaSexoCaracterEspecialValido(){
+       c.setSexo("@#$%&");
+       assertTrue(cad.verificaSexoCaracterEspecial(c));
+   }
+   @Test
+   public void testverificaSexoCaracterEspecialInvalido(){
+       assertFalse(cad.verificaSexoCaracterEspecial(c));
+   }
+   @Test
+   public void testverificaSexoCaracterEspecialNumericoValido(){
+       c.setSexo("@#$1234");
+       assertTrue(cad.verificaSexoCaracterEspecialNumerico(c));
+   }
+   @Test
+   public void testverificaSexoCaracterEspecialNumericoInvalido(){
+       assertFalse(cad.verificaSexoCaracterEspecialNumerico(c));
+   }
+    @Test
+    public void testverificaIdadeMenorValido(){
+       c.setIdade(0);
+       assertTrue(cad.verificaIdadeMenor(c));
+   }
+   @Test
+    public void testverificaIdadeMenorInvalido(){
+        assertFalse(cad.verificaIdadeMenor(c));
+    }
+    @Test
+    public void testverificaIdadeMaiorValido(){
+       c.setIdade(100);
+       assertTrue(cad.verificaIdadeMaior(c));
+   }
+    @Test
+    public void testverificaIdadeMaiorInvalido(){
+       assertFalse(cad.verificaIdadeMaior(c));
    }
 }

@@ -46,30 +46,48 @@ public class TestCadastroAluno {
        assertTrue(alu.cadastrarAluno(al));
    }
    
-      @Test 
-   public void testCampoVazioValido(){
-       assertTrue(alu.verificaCampoVazio(al));
-   }
-   
-    @Test 
-   public void testCampoVazioInvalido(){
-       assertFalse(alu.verificaCampoVazio(al));
+   @Test
+   public void testCampoNomeNumericoValidoAluno(){
+       al.setNomeAluno("12345");
+       assertTrue(alu.verificaNomeNumericoAluno(al));
    }
    
    @Test
-   public void testCampoNomeValido(){
-       al.setNomeAluno("Julia Maria Martins");
-       assertTrue(alu.verificaNome(al));
+   public void testCampoNomeNumericoInvalidoAluno(){
+       assertFalse(alu.verificaNomeNumericoAluno(al));
+   }
+   @Test
+   public void testverificaNomeCaractereEspecialValidoAluno(){
+       al.setNomeAluno("@&*%$");
+       assertTrue(alu.verificaNomeCaractereEspecialAluno(al));
    }
    
    @Test
-   public void testCampoNomeInvalido(){
-       assertFalse(alu.verificaNome(al));
+   public void testverificaNomeCaractereEspecialInvalidoAluno(){
+       assertFalse(alu.verificaNomeCaractereEspecialAluno(al));
    }
    
-     @Test
-   public void testCampoSexoValido(){
-       
+   @Test
+   public void testverificaNomeCaractereEspecialValidoGraduacao(){
+       al.setGraduacaoAlu("@#$%&");
+       assertTrue(alu.verificaNomeCaractereEspecialGraduacao(al));
+   }
+   @Test
+   public void testverificaNomeCaractereEspecialInvalidoGraduacao(){
+       assertFalse(alu.verificaNomeCaractereEspecialGraduacao(al));
+   }
+   @Test
+   public void testverificaNomeNumericoGraduacaoValido(){
+       al.setGraduacaoAlu("12345");
+       assertTrue(alu.verificaNomeNumericoGraduacao(al));
+   }
+   @Test
+   public void testverificaNomeNumericoGraduacaoInvalido(){
+       assertFalse(alu.verificaNomeNumericoGraduacao(al));
+   }
+   @Test
+    public void testCampoSexoValido(){
+       al.setSexo("Feminino");
        assertTrue(alu.verificaSexo(al));
    }
    
@@ -79,12 +97,41 @@ public class TestCadastroAluno {
        assertFalse(alu.verificaSexo(al));
    }
    @Test
-   public void testIdadeValida(){
-       assertTrue(alu.verificaIdade(al));
+    public void testCampoSexoNumericoValido(){
+       al.setSexo("12345");
+       assertTrue(alu.verificaSexoNumerico(al));
+   }
+   @Test
+    public void testCampoSexoNumericoInvalido(){
+       assertFalse(alu.verificaSexoNumerico(al));
+   }
+   @Test
+   public void testCampoSexoCaractereEspecialValido(){
+       al.setSexo("@#$%&");
+       assertTrue(alu.verificaSexoCaractereEspecial(al));
+   }
+   @Test
+   public void testCampoSexoCaractereEspecialInvalido(){
+       assertFalse(alu.verificaSexoCaractereEspecial(al));
+   }
+   @Test
+   public void testIdadeNumeroNegativoValida(){
+       al.setIdade(-12);
+       assertFalse(alu.verificaIdadeMenor(al));  
    }
    
    @Test
-   public void testIdadeInvalida(){
-       assertFalse(alu.verificaIdade(al));
+   public void testIdadeNumeroNegativoInvalida(){
+       assertTrue(alu.verificaIdadeMenor(al));
+   }
+   @Test
+   public void testIdade3DigitosValida(){
+       al.setIdade(100);
+       assertTrue(alu.verificaIdadeMaior(al));
+   }
+   
+   @Test
+   public void testIdade3DigitosInvalida(){
+       assertFalse(alu.verificaIdadeMaior(al));
    }
 }
