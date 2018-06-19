@@ -5,6 +5,7 @@
  */
 package view;
 
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.bean.Academia;
 import model.dow.AcademiaDAO;
@@ -20,9 +21,8 @@ public class TelaCadastroAcademia extends javax.swing.JInternalFrame {
      */
     public TelaCadastroAcademia() {
         initComponents();
-        
+
     }
-   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -52,9 +52,11 @@ public class TelaCadastroAcademia extends javax.swing.JInternalFrame {
 
         setClosable(true);
 
-        jLabel2.setText("Nome da Academia");
+        jLabel2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel2.setText("Nome da Academia:");
 
-        jLabel3.setText("Nome do Professor");
+        jLabel3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel3.setText("Nome do Professor:");
 
         txtNomePf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -62,17 +64,34 @@ public class TelaCadastroAcademia extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel4.setText("Graduação do Professor");
+        jLabel4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel4.setText("Graduação do Professor:");
 
-        jLabel5.setText("Idade");
+        jLabel5.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel5.setText("Idade:");
 
-        jLabel6.setText("Endereço da Academia");
+        jLabel6.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel6.setText("Endereço da Academia:");
 
-        jLabel7.setText("Sexo");
+        jLabel7.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel7.setText("Sexo:");
 
+        txtSexo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSexoActionPerformed(evt);
+            }
+        });
+
+        jButton1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/cancel.png"))); // NOI18N
         jButton1.setText("Cancelar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
+        jButton2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/accept.png"))); // NOI18N
         jButton2.setText("Cadastrar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -89,64 +108,69 @@ public class TelaCadastroAcademia extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel2)
-                            .addComponent(txtNomeAc)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(txtGrad)
-                            .addComponent(txtNomePf)
-                            .addComponent(jLabel6)
-                            .addComponent(txtende, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5)
-                                    .addComponent(idade, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(28, 28, 28)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel7)
-                                    .addComponent(txtSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(jLabel5)
+                                .addGap(66, 66, 66)
+                                .addComponent(jLabel7))
+                            .addComponent(txtNomeAc, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1)))
-                .addContainerGap())
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtGrad)
+                                    .addComponent(txtNomePf)
+                                    .addComponent(txtende, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel6)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(idade, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(txtSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel2)
-                .addGap(5, 5, 5)
-                .addComponent(txtNomeAc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtNomeAc, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtNomePf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtNomePf, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtGrad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtGrad, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(jLabel7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(idade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(idade, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtende, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton1))
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)))
+                .addComponent(txtende, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23))
         );
 
+        jLabel1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel1.setText("Cadastro de Academias/Professores");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -155,17 +179,16 @@ public class TelaCadastroAcademia extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(104, 104, 104)
+                .addGap(60, 60, 60)
                 .addComponent(jLabel1)
-                .addContainerGap(116, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -177,20 +200,95 @@ public class TelaCadastroAcademia extends javax.swing.JInternalFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        
+
         Academia ac = new Academia();
         AcademiaDAO dao = new AcademiaDAO();
-        
+        if (dao.verificaCampoVazio(ac)){
+            JOptionPane.showMessageDialog(null, "Cadastrado nao foi possivel!");
+            return;
+        }else if (ac.getNomeAcademia().equals("12345")){
+            JOptionPane.showMessageDialog(null, "Digite Novamente o nome da academia!");
+            return;
+        }else if (ac.getNomeAcademia().equals("@#$%&")){
+            JOptionPane.showMessageDialog(null, "Digite Novamente o nome da academia");
+            return;
+        }else if (ac.getNomeAcademia().equals("@#$1234")){
+            JOptionPane.showMessageDialog(null, "Digite Novamente o nome da academia");
+            return;
+        }
         ac.setNomeAcademia(txtNomeAc.getText());
+        
+        if (ac.getNomeProf().equals("12345")){
+            JOptionPane.showMessageDialog(null, "Digite Novamente o nome Professor!");
+            return;
+        }else if (ac.getNomeProf().equals("@#$%&")){
+            JOptionPane.showMessageDialog(null, "Digite Novamente o nome Professor!");
+            return;
+        }else  if (ac.getNomeProf().equals("@#$1234")){
+            JOptionPane.showMessageDialog(null, "Digite Novamente o nome Professor!");
+            return;
+        }
         ac.setNomeProf(txtNomePf.getText());
+        if (ac.getGraduacaoProf().equals("12345")){
+            JOptionPane.showMessageDialog(null, "Digite Novamente o nome graduação!");
+            return;
+        }else  if (ac.getGraduacaoProf().equals("@#$%&")){
+            JOptionPane.showMessageDialog(null, "Digite Novamente o nome graduação");
+            return;
+        }else if (ac.getGraduacaoProf().equals("@#$1234")){
+            JOptionPane.showMessageDialog(null, "Digite Novamente o nome graduação");
+            return;
+        }
         ac.setGraduacaoProf(txtGrad.getText());
-         ac.setIdade(Integer.parseInt(idade.getText()));
+        
+        if (idade.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Digite Novamente a idade!");
+            return;
+        }else if (ac.getIdade() < 1){
+            JOptionPane.showMessageDialog(null, "Digite Novamente a idade!");
+            return;
+        }else if (ac.getIdade() > 100){
+            JOptionPane.showMessageDialog(null, "Digite Novamente a idade!");
+            return ;
+        }
+        ac.setIdade(Integer.parseInt(idade.getText()));
+        if (ac.getSexo().equals("M") || ac.getSexo().equals("F") || ac.getSexo().equals("Masculino") || ac.getSexo().equals("Feminino")) {
+            return;
+        }else if (ac.getSexo().equals("12345")){
+            JOptionPane.showMessageDialog(null, "Digite Novamente o sexo!");
+            return;
+        }else if (ac.getSexo().equals("@#$%&")){
+            JOptionPane.showMessageDialog(null, "Digite Novamente o sexo!");
+            return ;
+        }else if (ac.getSexo().equals("@#$1234")){
+            JOptionPane.showMessageDialog(null, "Digite Novamente o sexo!");
+            return;
+        }
         ac.setSexo(txtSexo.getText());
+        
         ac.setEnderco(txtende.getText());
-        dao.create(ac);
+        if (dao.verificaCampoVazio(ac) == false) {
+            dao.cadastrarAcademia(ac);
+            JOptionPane.showMessageDialog(null, "Cadastrado com Sucesso!");
+        }else{
+            JOptionPane.showMessageDialog(null, "Cadastrado nao foi possivel!");
+        }
         
-        
+        if(dao.verificaSexo(ac) == false){
+            JOptionPane.showMessageDialog(null, "Digite Novamente!");
+        }
+           this.dispose();
+
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       this.dispose();
+       
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txtSexoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSexoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSexoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -211,4 +309,8 @@ public class TelaCadastroAcademia extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtSexo;
     private javax.swing.JTextField txtende;
     // End of variables declaration//GEN-END:variables
+
+    private void dispose(boolean b) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
