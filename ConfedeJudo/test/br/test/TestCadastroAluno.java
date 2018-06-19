@@ -67,6 +67,15 @@ public class TestCadastroAluno {
        assertFalse(alu.verificaNomeCaractereEspecialAluno(al));
    }
    
+    @Test
+    public void testverificaNomeAlunoCaractereEspecialNumericoValido(){
+       al.setNomeAluno("@#$1234");
+       assertTrue(alu.verificaNomeAlunoCaracterEspecialNumerico(al));
+   }
+    @Test
+    public void testverificaNomeAlunoCaractereEspecialNumericoInvalido(){
+        assertFalse(alu.verificaNomeAlunoCaracterEspecialNumerico(al));
+    }
    @Test
    public void testverificaNomeCaractereEspecialValidoGraduacao(){
        al.setGraduacaoAlu("@#$%&");
@@ -85,6 +94,15 @@ public class TestCadastroAluno {
    public void testverificaNomeNumericoGraduacaoInvalido(){
        assertFalse(alu.verificaNomeNumericoGraduacao(al));
    }
+    @Test
+    public void testverificaNomeGraduacaoCaractereEspecialNumericoValido(){
+       al.setGraduacaoAlu("@#$1234");
+       assertTrue(alu.verificaNomeGraduacaoCaracterEspecialNumerico(al));
+   }
+    @Test
+    public void testverificaNomeGraduacaoCaractereEspecialNumericoInvalido(){
+        assertFalse(alu.verificaNomeGraduacaoCaracterEspecialNumerico(al));
+    }
    @Test
     public void testCampoSexoValido(){
        al.setSexo("Feminino");
@@ -113,6 +131,15 @@ public class TestCadastroAluno {
    @Test
    public void testCampoSexoCaractereEspecialInvalido(){
        assertFalse(alu.verificaSexoCaractereEspecial(al));
+   }
+    @Test
+   public void testverificaSexoCaracterEspecialNumericoValido(){
+       al.setSexo("@#$1234");
+       assertTrue(alu.verificaSexoCaracterEspecialNumerico(al));
+   }
+   @Test
+   public void testverificaSexoCaracterEspecialNumericoInvalido(){
+       assertFalse(alu.verificaSexoCaracterEspecialNumerico(al));
    }
    @Test
    public void testIdadeNumeroNegativoValida(){
