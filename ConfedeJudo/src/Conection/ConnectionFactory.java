@@ -19,7 +19,7 @@ import java.util.logging.Logger;
  * @author Alita
  */
 
-
+//Classe de conexão com o banco de dados
 public class ConnectionFactory {
     
     private static final String DRIVER = "com.mysql.jdbc.Driver";
