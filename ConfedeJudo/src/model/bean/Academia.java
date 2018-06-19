@@ -5,11 +5,18 @@
  */
 package model.bean;
 
+import java.sql.Array;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Alita
  */
 public class Academia {
+
+    public static void setModel(DefaultTableModel AcademiaLista) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     private String nomeAcademia;
     private String nomeProf;
@@ -18,7 +25,16 @@ public class Academia {
     private String enderco;
     private int idade;
 
-    
+    public Academia() {
+        
+        this.nomeAcademia = "";
+        this.nomeProf = "";
+        this.graduacaoProf = "";
+        this.sexo = "";
+        this.enderco = "";
+        this.idade = 0;
+    }
+
 
     public String getNomeAcademia() {
         return nomeAcademia;

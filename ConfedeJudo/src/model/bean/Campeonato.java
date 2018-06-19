@@ -16,8 +16,17 @@ public class Campeonato {
     private String localCamp;
     private int dataCamp;
     private float horario;
+
+    public Campeonato() {
+        this.nomeCamp = "";
+        this.ProfResp = "";
+        this.localCamp = "";
+        this.dataCamp = 0;
+        this.horario = 0;
+    }
   
 
+    
     public int getDataCamp() {
         return dataCamp;
     }
@@ -49,15 +58,6 @@ public class Campeonato {
     public void setLocalCamp(String local) {
         this.localCamp = local;
     }
-
-    public int getData() {
-        return dataCamp;
-    }
-
-    public void setData(int data) {
-        this.dataCamp = data;
-    }
-
     public float getHorario() {
         return horario;
     }

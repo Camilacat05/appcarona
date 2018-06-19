@@ -11,10 +11,30 @@ package model.bean;
  */
 public class Inscricao {
     
+    private String NomeCamp;
+    private String NomeAtleta;
     private int idade;
     private float peso;
     private float preco;
     private String grad;
+    
+    
+    public String getNomeCamp() {
+        return NomeCamp;
+    }
+
+    public void setNomeCamp(String NomeCamp) {
+        this.NomeCamp = NomeCamp;
+    }
+
+    public String getNomeAtleta() {
+        return NomeAtleta;
+    }
+
+    public void setNomeAtleta(String NomeAtleta) {
+        this.NomeAtleta = NomeAtleta;
+    }
+    
     public float getPreco() {
         return preco;
     }

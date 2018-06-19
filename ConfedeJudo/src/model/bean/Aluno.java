@@ -15,9 +15,17 @@ public class Aluno {
     private String GraduacaoAlu;
     private String sexo;
     private int idade;
+
+    public Aluno() {
+        this.nomeAluno = "";
+        this.GraduacaoAlu = "";
+        this.sexo = "";
+        this.idade = 0;
+    }
  
     
-
+    
+    
     public String getNomeAluno() {
         return nomeAluno;
     }
